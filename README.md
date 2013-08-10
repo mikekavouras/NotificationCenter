@@ -9,7 +9,9 @@
     "yellow",
     "orange"
   ];
+</code>
 
+<code>
   var $ball = $('.ball');
 
   $ball.bind('changeColor', function() {
@@ -19,5 +21,4 @@
 
   Notifications.addObserver($ball, "changeColor");
 
-}
 </code>
