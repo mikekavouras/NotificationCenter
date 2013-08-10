@@ -13,12 +13,15 @@
 
 <code>
   var $ball = $('.ball');
+</code>
 
+<code>
   $ball.bind('changeColor', function() {
     var rand = Math.floor(Math.random() * colors.length + 1);
     $(this).css('backgroundColor', colors[rand]);
   });
+</code>
 
+<code>
   Notifications.addObserver($ball, "changeColor");
-
 </code>
