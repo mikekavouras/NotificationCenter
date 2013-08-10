@@ -1,2 +1,2 @@
 <h1>Notifications.js</h1>
-<a href="http://mikekavouras/notifications-js">Check it</a>
+<p>Notifications.js was designed as an abstraction layer between JavaScript events and the DOM<p>
