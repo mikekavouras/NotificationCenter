@@ -12,7 +12,7 @@
 
   var $ball = $('.ball');
 
-  $ball.bind('changeColor', function() { <br>
+  $ball.bind('changeColor', function() {
     var rand = Math.floor(Math.random() * colors.length + 1);
     $(this).css('backgroundColor', colors[rand]);
   });
