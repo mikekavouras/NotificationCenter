@@ -27,10 +27,10 @@ Notifications.removeObserver = function(elems, ev) {
   }
   remove(arr, elems);
 }
-Notifications.trigger = function(ev) {
+Notifications.trigger = function(ev params) {
   if (Notifications.observers[ev] === undefined) return;
   var elems = Notifications.observers[ev];
   for (var i = 0; i < elems.length; i++) {
-    $(elems[i]).trigger(ev);
+    $(elems[i]).trigger(ev, params);
   }
 }
