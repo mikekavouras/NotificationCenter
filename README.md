@@ -24,7 +24,6 @@
   // bind the 'up' arrow keydown event to trigger the 'changeColor' event
   $(document).bind('keydown', function(e) {
     if (e.keyCode !== 38) return;
-
     Notifications.trigger('changeColor');
   });
 ```
