@@ -34,3 +34,6 @@ Notifications.trigger = function(ev params) {
     $(elems[i]).trigger(ev, params);
   }
 }
+Notifications.clearAll = function() {
+  this.observers = {};
+}
