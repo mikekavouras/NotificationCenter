@@ -1,18 +1,6 @@
 <h1>Notifications.js</h1>
 <p>Notifications.js was designed as an abstraction layer between JavaScript events and the DOM.</p>
 
-```html
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-```
-
 ```javascript
   var colors = [
     "red",
