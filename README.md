@@ -1,5 +1,5 @@
 <h1>Notifications.js</h1>
-<p>Notifications.js was designed as an abstraction layer between JavaScript events and the DOM.</p>
+<p>Notifications.js was designed as an extremely lightweight abstraction layer between JavaScript events and the DOM.</p>
 
 ```javascript
   var colors = [
