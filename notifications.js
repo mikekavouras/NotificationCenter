@@ -1,8 +1,9 @@
 Notifications = {};
 Notifications.observers = {};
 Notifications.addObserver = function(elems, ev) {
-  if (this.observers[ev] === undefined)
+  if (this.observers[ev] === undefined) {
     this.observers[ev] = [];
+  }
   for (var i = 0; i < elems.length; i++) {
     this.observers[ev].push(elems[i]);
   }
