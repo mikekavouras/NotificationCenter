@@ -1,5 +1,4 @@
-TS = TS || {};
-TS.NotificationCenter = {
+NotificationCenter = NotificationCenter || {
 
   observers: {},
 
@@ -9,7 +8,9 @@ TS.NotificationCenter = {
       this.observers[namespace] = {event: event, items: []};
     }
     if (!this._data(elem, namespace).present) {
-      elem.addEventListener(namespace, action, false);
+      if (typeof elem.addEventListener !== 'undefined') {
+        elem.addEventListener(namespace, action, false);
+      }
       this.observers[namespace].items.push([elem, action]);
     }
   },
@@ -23,7 +24,9 @@ TS.NotificationCenter = {
   removeObserver: function(elem, namespace) {
     var data = this._data(elem, namespace);
     if (data.present) {
-      elem.removeEventListener(namespace, data.action, false);
+      if (typeof elem.removeEventListener !== 'undefined') {
+        elem.removeEventListener(namespace, data.action, false);
+      }
       data.items.splice(data.index, 1);
       if (data.items.length === 0) {
         delete this.observers[namespace];
@@ -38,11 +41,16 @@ TS.NotificationCenter = {
   },
 
   trigger: function(namespace) {
-    object = NotificationCenter.observers[namespace];
+    var object = this.observers[namespace];
     if (typeof object === 'undefined') return;
     var items = object.items;
     for (var i = 0; i < items.length; i++) {
-      items[i][0].dispatchEvent(object.event);
+      var elem = items[i][0];
+      if (typeof elem.dispatchEvent === 'undefined') {
+        items[i][1].call(elem, object.event);
+      } else {
+        elem.dispatchEvent(object.event);
+      }
     }
   },
 
@@ -86,9 +94,13 @@ TS.NotificationCenter = {
   },
 
   _createEvent: function(namespace) {
-    var event = document.createEvent('Event');
-    event.initEvent(namespace, true, true);
-    return event;
+    if (typeof Event !== 'undefined') {
+      return new Event(namespace);
+    } else {
+      var event = document.createEvent('Event');
+      event.initEvent(namespace, true, true);
+      return event;
+    }
   }
 
 };
