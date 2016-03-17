@@ -2,28 +2,19 @@
 <p>Notifications.js was designed as an extremely lightweight abstraction layer between JavaScript events and the DOM.</p>
 
 ```javascript
-  var colors = [
-    "red",
-    "green",
-    "blue",
-    "yellow",
-    "orange"
-  ];
+  var boxes = document.querySelectorAll('.box');
 
-  var $ball = $('.ball');
-
-  // bind a custom event to $ball
-  $ball.bind('changeColor', function() {
-    var rand = Math.floor(Math.random() * colors.length + 1);
-    $(this).css('backgroundColor', colors[rand]);
+  NotificationCenter.addObserver(boxes[0], 'changeColor', function(e) {
+    e.target.style.backgroundColor = 'blue';
   });
 
-  // add $ball to Notifications as an observer of the 'changeColor' event
-  Notifications.addObserver($ball, "changeColor");
-
-  // bind the 'up' arrow keydown event to trigger the 'changeColor' event
-  $(document).bind('keydown', function(e) {
-    if (e.keyCode !== 38) return;
-    Notifications.trigger('changeColor');
+  NotificationCenter.addObserver(boxes[1], 'changeColor, function(e) {
+    e.target.style.backgroundColor = 'red';
   });
+
+  var button = document.getElementsByTagName('button');
+  button.addEventListener('click', function() {
+    NotificationCenter.trigger('changeColor');
+  }, false);
+}
 ```
