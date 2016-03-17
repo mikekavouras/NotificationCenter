@@ -1,4 +1,5 @@
-NotificationCenter = {
+TS = TS || {};
+TS.NotificationCenter = {
 
   observers: {},
 
@@ -49,15 +50,6 @@ NotificationCenter = {
     this.observers = {};
   },
 
-  trigger: function(namespace) {
-    object = NotificationCenter.observers[namespace];
-    if (typeof object === 'undefined') return;
-    var items = object.items;
-    for (var i = 0; i < items.length; i++) {
-      items[i][0].dispatchEvent(object.event);
-    }
-  },
-
   _data: function(elem, namespace) {
     var object = this.observers[namespace];
     if (typeof object === 'undefined') {
@@ -66,7 +58,6 @@ NotificationCenter = {
     var items = object.items;
     var elems = this._elems(items);
     var idx = elems.indexOf(elem);
-    var elem = elems[idx];
     var action = this._actions(items)[idx];
     return {
       present: idx >= 0,
@@ -100,4 +91,4 @@ NotificationCenter = {
     return event;
   }
 
-}
+};
