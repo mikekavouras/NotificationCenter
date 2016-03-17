@@ -1,4 +1,17 @@
-NotificationCenter = NotificationCenter || {
+/*
+ * Structure
+ * {
+ *   namespace: {
+ *     event: Event,
+ *     items: [
+ *       [Object, Function],
+ *       ...
+ *     ]
+ *   }
+ * }
+*/
+
+var NotificationCenter = {
 
   observers: {},
 
