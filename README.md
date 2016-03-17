@@ -8,7 +8,7 @@
     e.target.style.backgroundColor = 'blue';
   });
 
-  NotificationCenter.addObserver(boxes[1], 'changeColor, function(e) {
+  NotificationCenter.addObserver(boxes[1], 'changeColor', function(e) {
     e.target.style.backgroundColor = 'red';
   });
 
