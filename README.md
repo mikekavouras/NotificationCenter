@@ -1,20 +1,30 @@
-<h1>Notifications.js</h1>
-<p>Notifications.js was designed as an extremely lightweight abstraction layer between JavaScript events and the DOM.</p>
+<h1>NotificationCenter.js</h1>
+`NotificationCenter.js` is inspired by `NSNotificationCenter`. While some may argue that the global notification pattern is inherently faulty, I have found enough times where it is the most appropriate way to communicate between objects.
+
+`NotificationCenter.js` works with both **DOM objects** and **vanilla objects**. 
+
+
+### Examples
+
+**DOM Objects**
 
 ```javascript
+  var randomColor = function() {
+    var colors = ['red', 'blue', 'green', 'purple', 'gray'];
+    var idx = Math.floor(Math.random() * (colors.length + 1));
+    return colors[idx];
+  };
+  
   var boxes = document.querySelectorAll('.box');
 
-  NotificationCenter.addObserver(boxes[0], 'changeColor', function(e) {
-    e.target.style.backgroundColor = 'blue';
+  NotificationCenter.addObservers(boxes, 'customDOMEvent', function(e) {
+    e.target.style.backgroundColor = randomColor();
   });
 
-  NotificationCenter.addObserver(boxes[1], 'changeColor', function(e) {
-    e.target.style.backgroundColor = 'red';
-  });
-
-  var button = document.getElementsByTagName('button');
+  var button = document.getElementsByTagName('button')[2];
   button.addEventListener('click', function() {
-    NotificationCenter.trigger('changeColor');
+    NotificationCenter.trigger('customDOMEvent');
   }, false);
+  
 }
 ```
