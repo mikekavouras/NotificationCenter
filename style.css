@@ -1,61 +1,24 @@
-body {
-  background: #f2f2f2;
-  font-family: sans-serif;
-}
 .box {
   width: 40px;
   height: 40px;
   background: lightblue;
-  float: left;
+  display: inline-block;
   margin-right: 20px;
   border-radius: 2px;
   cursor: pointer;
 }
 
-.box.bound {
-  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.5);
+.example {
+  display: block;
+  border-top: 1px solid #eee;
+  padding-bottom: 10px;
+  padding-top: 20px;
 }
 
-#change {
-  margin-top: 40px;
-  width: 100px;
-  height: 50px;
-  background: lightcoral;
-  text-align: center;
-  cursor: pointer;
-  line-height: 50px;
-  border-radius: 4px;
-  color: #333;
+.example-1 {
+  border-top: none;
 }
 
-#move {
-  margin-top: 10px;
-  width: 100px;
-  height: 50px;
-  background: darkseagreen;
-  cursor: pointer;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 4px;
-  color: #333;
-}
-
-#show {
-  width: 100px;
-  height: 50px;
-  background: #494949;
-  margin-top: 10px;
-  border-radius: 4px;
-}
-
-textarea {
-  width: 300px;
-  height: 200px;
-  margin-top: 40px;
-}
-
-.github {
-  position: absolute;
-  top: 30px;
-  right: 30px;
+.controls {
+  margin: 10px 0px;
 }

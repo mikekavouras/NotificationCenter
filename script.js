@@ -1,47 +1,68 @@
-var eventName = 'CustomEvent.net';
+function randomColor() {
+  var colors = ['blue', 'green', 'red', 'yellow', 'gray', 'black', 'purple'];
+  var idx = Math.floor(Math.random() * (colors.length + 1));
+  return colors[idx];
+}
 
-function addOne() {
-  var box = document.querySelector('.box');
-  NotificationCenter.addObserver(box, eventName, function() {
-    console.log('triggered event', eventName);
+// EXAMPLE 1
+
+(function() {
+  var example1 = document.querySelector('.example-1');
+  var boxes = example1.querySelectorAll('.box');
+  NotificationCenter.addObservers(boxes, 'example1Event', function(e) {
+    e.target.style.backgroundColor = randomColor();
   });
-}
 
-function addAll() {
-  var boxes = document.querySelectorAll('.box');
-  NotificationCenter.addObservers(boxes, eventName, function() {
-    console.log('triggered event', eventName);
-  });
-}
+  example1.getElementsByTagName('button')[0].addEventListener('click', function() {
+    NotificationCenter.trigger('example1Event');
+  }, false);
+})();
 
-function removeOne() {
-  var box = document.querySelector('.box');
-  NotificationCenter.removeObserver(box, eventName);
-}
 
-function removeAll() {
-  var boxes = document.querySelectorAll('.box');
-  NotificationCenter.removeObservers(boxes, eventName);
-}
+// EXAMPLE 2
 
-var buttons = document.getElementsByTagName('button');
+(function() {
+  var example2 = document.querySelector('.example-2');
+  var boxes = example2.querySelectorAll('.box');
+  function addFirst() {
+    NotificationCenter.addObserver(boxes[0], 'example2Event', function(e) {
+      e.target.style.backgroundColor = randomColor();
+    });
+  }
 
-buttons[0].addEventListener('click', function() {
-  addOne();
-}, false);
+  function addAll() {
+    NotificationCenter.addObservers(boxes, 'example2Event', function(e) {
+      e.target.style.backgroundColor = randomColor();
+    });
+  }
 
-buttons[1].addEventListener('click', function() {
-  addAll();
-}, false);
+  function removeFirst() {
+    NotificationCenter.removeObserver(boxes[0], 'example2Event');
+  }
 
-buttons[2].addEventListener('click', function() {
-  NotificationCenter.trigger(eventName);
-}, false);
+  function removeAll() {
+    NotificationCenter.removeObservers(boxes, 'example2Event');
+  }
 
-buttons[3].addEventListener('click', function() {
-  removeOne();
-}, false);
+  var buttons = example2.getElementsByTagName('button');
 
-buttons[4].addEventListener('click', function() {
-  removeAll();
-}, false);
+  buttons[0].addEventListener('click', function() {
+    addFirst();
+  }, false);
+
+  buttons[1].addEventListener('click', function() {
+    addAll();
+  }, false);
+
+  buttons[2].addEventListener('click', function() {
+    NotificationCenter.trigger('example2Event');
+  }, false);
+
+  buttons[3].addEventListener('click', function() {
+    removeFirst();
+  }, false);
+
+  buttons[4].addEventListener('click', function() {
+    removeAll();
+  }, false);
+})();

@@ -7,29 +7,38 @@
 
   <title>notifications.js</title>
 
+  <link href="http://mikekavouras.com/css/mike.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.4.1/jasmine.css">
 
 </head>
 <body>
 
   <a href="https://github.com/mikekavouras/notifications-js" class="github">view this project on GitHub</a>
 
-  <button>add 1st</button>
-  <button>add all</button>
-  <button>trigger</button>
-  <button>remove 1st</button>
-  <button>remove all</button>
+  <div class="example example-1">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="controls">
+      <button>trigger</button>
+    </div>
+  </div>
 
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
+  <div class="example example-2">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="controls">
+      <button>add 1st</button>
+      <button>add all</button>
+      <button>trigger</button>
+      <button>remove 1st</button>
+      <button>remove all</button>
+    </div>
+
+  </div>
 
   <script src="NotificationCenter.js"></script>
   <script src="script.js"></script>
-
-  <script type="text/javascript" src="jasmine/lib/jasmine-2.4.1/jasmine.js"></script>
-  <script type="text/javascript" src="jasmine/lib/jasmine-2.4.1/jasmine-html.js"></script>
-  <script type="text/javascript" src="jasmine/lib/jasmine-2.4.1/boot.js"></script>
 </body>
 </html>
