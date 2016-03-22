@@ -53,14 +53,14 @@ var NotificationCenter = {
     }
   },
 
-  trigger: function(namespace) {
+  trigger: function(namespace, payload) {
     var object = this.observers[namespace];
     if (typeof object === 'undefined') return;
     var items = object.items;
     for (var i = 0; i < items.length; i++) {
       var elem = items[i][0];
       if (typeof elem.dispatchEvent === 'undefined') {
-        items[i][1].call(elem, object.event);
+        items[i][1].call(elem, object.event, payload);
       } else {
         elem.dispatchEvent(object.event);
       }
