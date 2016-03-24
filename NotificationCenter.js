@@ -107,13 +107,9 @@ var NotificationCenter = {
   },
 
   _createEvent: function(namespace) {
-    if (typeof Event !== 'undefined') {
-      return new Event(namespace);
-    } else {
-      var event = document.createEvent('Event');
-      event.initEvent(namespace, true, true);
-      return event;
-    }
+    var event = document.createEvent('Event');
+    event.initEvent(namespace, true, true);
+    return event;
   }
 
 };
