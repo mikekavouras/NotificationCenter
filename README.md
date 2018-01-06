@@ -1,6 +1,6 @@
 <h1>NotificationCenter.js</h1>
 
-`NotificationCenter.js` is inspired by `NSNotificationCenter`. While some may argue that the global notification pattern is inherently faulty, there are enough times where it is the most appropriate way to communicate between objects.
+`NotificationCenter.js` is inspired by [`NSNotificationCenter`](https://developer.apple.com/documentation/foundation/nsnotificationcenter). While some may argue that the global notification pattern is inherently faulty, there are times where it is the most appropriate way to communicate between objects.
 
 `NotificationCenter.js` works with any JavaScript Object. 
 
